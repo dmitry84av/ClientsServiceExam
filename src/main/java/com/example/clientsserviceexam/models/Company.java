@@ -25,43 +25,19 @@ public class Company{
     private  String address;
     @Column(nullable = false)
     private  String city;
-    @OneToMany(mappedBy = "company", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "company")
     private Set<Client> clients;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Company company)) return false;
-        return getId().equals(company.getId()) && getAddress().equals(company.getAddress()) && getCity().equals(company.getCity());
+        return Objects.equals(getId(), company.getId()) && Objects.equals(getAddress(), company.getAddress()) && Objects.equals(getCity(), company.getCity()) && Objects.equals(getClients(), company.getClients());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getAddress(), getCity());
+        return Objects.hash(getId(), getAddress(), getCity(), getClients());
     }
 
     @Override
@@ -70,6 +46,7 @@ public class Company{
                 "id=" + id +
                 ", address='" + address + '\'' +
                 ", city='" + city + '\'' +
+                ", clients=" + clients +
                 '}';
     }
 }

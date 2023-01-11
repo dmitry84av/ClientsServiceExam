@@ -5,14 +5,13 @@
     <title>Client Update</title>
 </head>
 <body>
-<div  class="clientForm">
+<div class="clientForm">
   <form th:action="@{/updateClientCompanyForm}"  method="post">
      <div>
         <input type="text" name="id" readonly th:value="${client.id}">
         <input type="text" name="surname" placeholder="Surname" th:value="${client.surname}">
         <input type="text" name="name" placeholder="Name" th:value="${client.name}">
-        <input type="text" name="patronymic" placeholder="Patronymic"
-               th:value="${client.patronymic}">
+        <input type="text" name="patronymic" placeholder="Patronymic" th:value="${client.patronymic}">
         <select name="gender" id="gender">
            <option th:each="gender:${genders}" th:value="${gender}" th:utext="${gender}"
                    th:selected="${gender==client.gender}"></option>
@@ -23,7 +22,7 @@
         <input type="text" name="address" placeholder="Address" th:value="*{address}">
         <input type="text" name="city" placeholder="City" th:value="*{city}">
      </div>
-         <input type="submit" value="SAVE">
+      <input type="submit" value="SAVE">
   </form>
 </div>
 <div class="companyForm">

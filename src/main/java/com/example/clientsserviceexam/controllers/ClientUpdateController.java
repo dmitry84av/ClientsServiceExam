@@ -27,7 +27,6 @@ public class ClientUpdateController {
             client.setCompany(new Company());
         model.addAttribute("client",client);
         model.addAttribute("genders",Client.Gender.values());
-
         return "clientUpdate";
     }
     @PostMapping("updateClientForm")

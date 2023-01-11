@@ -34,56 +34,17 @@ public class Client {
             inverseJoinColumns = @JoinColumn(name = "companies_id"))
     private Company company;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getPatronymic() {
-        return patronymic;
-    }
-
-    public void setPatronymic(String patronymic) {
-        this.patronymic = patronymic;
-    }
-
-    public Gender getGender() {
-        return gender;
-    }
-
-    public void setGender(Gender gender) {
-        this.gender = gender;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Client client)) return false;
-        return getId().equals(client.getId()) && getSurname().equals(client.getSurname()) && getName().equals(client.getName()) && getPatronymic().equals(client.getPatronymic()) && getGender() == client.getGender();
+        if (o == null || getClass() != o.getClass()) return false;
+        Client client = (Client) o;
+        return Objects.equals(id, client.id) && Objects.equals(surname, client.surname) && Objects.equals(name, client.name) && Objects.equals(patronymic, client.patronymic) && gender == client.gender;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getSurname(), getName(), getPatronymic(), getGender());
+        return Objects.hash(id, surname, name, patronymic, gender);
     }
 
     @Override
