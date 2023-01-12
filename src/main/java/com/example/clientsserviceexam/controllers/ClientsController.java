@@ -1,10 +1,9 @@
 package com.example.clientsserviceexam.controllers;
+
 import com.example.clientsserviceexam.models.Client;
 import com.example.clientsserviceexam.services.data.ClientService;
 import com.example.clientsserviceexam.services.data.db.ClientServiceDb;
-import com.example.clientsserviceexam.services.data.json.ClientServiceJson;
 import com.google.gson.Gson;
-import com.google.gson.stream.JsonWriter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -53,10 +52,10 @@ public class ClientsController {
 		return "clients";
 	}
 	@PostMapping("convertClientJsonForm")
-	public String saveAll() {
+	public String saveAll(List<Client> clients) {
 		try {
 			FileWriter writer = new FileWriter("clients.json");
-			new Gson().toJson(new JsonWriter(writer));
+			new Gson().toJson(clients,writer);
 			writer.flush();
 		}
 		catch (Exception ignored) {
