@@ -15,4 +15,5 @@ public interface ClientService {
     Client findById(Integer id);
 
     List<Client> findAllBySurnameAndNameAndPatronymic(String surname, String name, String patronymic);
+
 }

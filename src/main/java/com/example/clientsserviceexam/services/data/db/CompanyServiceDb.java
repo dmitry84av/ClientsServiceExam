@@ -22,4 +22,9 @@ public class CompanyServiceDb implements CompanyService {
     public List<Company> saveAll(List<Company> company) {
         return companyRepository.saveAll(company);
     }
+
+    @Override
+    public List<Company> findAll() {
+        return companyRepository.findAll();
+    }
 }

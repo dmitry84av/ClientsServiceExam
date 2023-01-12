@@ -11,4 +11,5 @@ public interface CompanyService {
     List<Company> saveAll(List<Company> company);
 
 
+    List<Company> findAll();
 }
