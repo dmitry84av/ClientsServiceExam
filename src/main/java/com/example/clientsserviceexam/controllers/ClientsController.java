@@ -2,6 +2,7 @@ package com.example.clientsserviceexam.controllers;
 import com.example.clientsserviceexam.models.Client;
 import com.example.clientsserviceexam.services.data.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -15,6 +16,7 @@ import java.util.List;
 
 @Controller
 public class ClientsController {
+	@Qualifier("clientServiceDb")
 	@Autowired
 	private ClientService clientService;
 

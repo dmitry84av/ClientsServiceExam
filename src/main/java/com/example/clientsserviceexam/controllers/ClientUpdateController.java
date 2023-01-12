@@ -4,6 +4,7 @@ import com.example.clientsserviceexam.models.Company;
 import com.example.clientsserviceexam.services.data.ClientService;
 import com.example.clientsserviceexam.services.data.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -15,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class ClientUpdateController {
+    @Qualifier("clientServiceDb")
     @Autowired
     private ClientService clientService;
     @Autowired
