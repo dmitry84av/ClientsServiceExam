@@ -1,6 +1,7 @@
 package com.example.clientsserviceexam.controllers;
 
 import com.example.clientsserviceexam.models.Client;
+import com.example.clientsserviceexam.repositiries.ClientRepository;
 import com.example.clientsserviceexam.services.data.ClientService;
 import com.example.clientsserviceexam.services.data.db.ClientServiceDb;
 import com.google.gson.Gson;
@@ -26,6 +27,8 @@ public class ClientsController {
 	private ClientService clientService;
 	@Autowired
 	private ClientServiceDb clientServiceDb;
+	@Autowired
+	private ClientRepository clientRepository;
 
 	@GetMapping("clients")
 	public String load(Model model) {
@@ -55,7 +58,7 @@ public class ClientsController {
 	public String saveAll(List<Client> clients) {
 		try {
 			FileWriter writer = new FileWriter("clients.json");
-			new Gson().toJson(clients,writer);
+			writer.write(clientServiceDb.saveAll(clients).toString());//этот вариант только пришел в голову но он не срабатывает((
 			writer.flush();
 		}
 		catch (Exception ignored) {
